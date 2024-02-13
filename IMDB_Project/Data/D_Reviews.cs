@@ -11,35 +11,6 @@ namespace IMDB_Project.Data
 {
     public class D_Reviews
     {
-
-        public DataTable List_Movies(string cTexto)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion.getInstancia().CrearConexion();
-                //stored procedure 
-                SqlCommand Comando = new SqlCommand("USP_List_Movies", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add("@cTexto", SqlDbType.VarChar).Value = cTexto;
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-            }
-        }
-
         public string SaveReview(int nOpcion,
                                  E_Reviews oPro)
         {
@@ -68,34 +39,6 @@ namespace IMDB_Project.Data
             }
             return Rpta;
         }
-
-        public string Activo_pr(int nCodigo_pr,
-                                bool bEstado_activo)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion.getInstancia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("ACTIVO_PR", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add("@nCodigo_pr", SqlDbType.Int).Value = nCodigo_pr;
-                Comando.Parameters.Add("@bEstado_activo", SqlDbType.Bit).Value = bEstado_activo;
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo cambiar el estado activo del producto";
-            }
-            catch (Exception ex)
-            {
-
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-            }
-            return Rpta;
-        }
-
         public DataTable List_Reviews(int id_Movie)
         {
             SqlDataReader Resultado;
@@ -121,7 +64,7 @@ namespace IMDB_Project.Data
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
         }
-
+        /*
         public DataTable Listado_ca()
         {
             SqlDataReader Resultado;
@@ -147,6 +90,7 @@ namespace IMDB_Project.Data
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
         }
+        */
 
     }
 }
