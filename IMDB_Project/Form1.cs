@@ -35,7 +35,8 @@ namespace IMDB_Project
         //creo que es btn_add_review
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
         private void List_movies(string cTexto)
         {
@@ -53,12 +54,12 @@ namespace IMDB_Project
             }
             else
             {
-                this.vCodigo_pr = Convert.ToInt32(dgv_movies.CurrentRow.Cells["codigo_pr"].Value);
-                txtDescripcion_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_pr"].Value);
-                txtMarca_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["marca_pr"].Value);
-                cmbMedidas.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_me"].Value);
-                cmbCategoria.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_ca"].Value);
-                txtStockActual.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["stock_actual"].Value);
+                //this.vCodigo_pr = Convert.ToInt32(dgv_movies.CurrentRow.Cells["codigo_pr"].Value);
+                //txtDescripcion_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_pr"].Value);
+                //txtMarca_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["marca_pr"].Value);
+                //cmbMedidas.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_me"].Value);
+                //cmbCategoria.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_ca"].Value);
+                //txtStockActual.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["stock_actual"].Value);
             }
         }
         
