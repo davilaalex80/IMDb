@@ -29,42 +29,98 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_update_review = new System.Windows.Forms.Button();
+            this.btn_delete_review = new System.Windows.Forms.Button();
+            this.btn_add_review = new System.Windows.Forms.Button();
+            this.btn_show_reviews = new System.Windows.Forms.Button();
+            this.btn_show_movies = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dgv_movies = new System.Windows.Forms.DataGridView();
+            this.dgv_reviews = new System.Windows.Forms.DataGridView();
+            this.btn_login = new System.Windows.Forms.Button();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.txt_search_movie = new System.Windows.Forms.TextBox();
+            this.btn_search_movie = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_movies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_reviews)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Brown;
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_login);
+            this.panel1.Controls.Add(this.btn_update_review);
+            this.panel1.Controls.Add(this.btn_delete_review);
+            this.panel1.Controls.Add(this.btn_add_review);
+            this.panel1.Controls.Add(this.btn_show_reviews);
+            this.panel1.Controls.Add(this.btn_show_movies);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 121);
+            this.panel1.Size = new System.Drawing.Size(1153, 131);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // btn_update_review
             // 
-            this.button1.BackColor = System.Drawing.Color.Salmon;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(5, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 59);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Show Movies";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_update_review.BackColor = System.Drawing.Color.Salmon;
+            this.btn_update_review.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update_review.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_update_review.Location = new System.Drawing.Point(845, 60);
+            this.btn_update_review.Name = "btn_update_review";
+            this.btn_update_review.Size = new System.Drawing.Size(204, 59);
+            this.btn_update_review.TabIndex = 6;
+            this.btn_update_review.Text = "Update Review";
+            this.btn_update_review.UseVisualStyleBackColor = false;
+            // 
+            // btn_delete_review
+            // 
+            this.btn_delete_review.BackColor = System.Drawing.Color.Salmon;
+            this.btn_delete_review.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_review.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_delete_review.Location = new System.Drawing.Point(635, 59);
+            this.btn_delete_review.Name = "btn_delete_review";
+            this.btn_delete_review.Size = new System.Drawing.Size(204, 59);
+            this.btn_delete_review.TabIndex = 5;
+            this.btn_delete_review.Text = "Delete Review";
+            this.btn_delete_review.UseVisualStyleBackColor = false;
+            // 
+            // btn_add_review
+            // 
+            this.btn_add_review.BackColor = System.Drawing.Color.Salmon;
+            this.btn_add_review.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_review.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_add_review.Location = new System.Drawing.Point(425, 59);
+            this.btn_add_review.Name = "btn_add_review";
+            this.btn_add_review.Size = new System.Drawing.Size(204, 59);
+            this.btn_add_review.TabIndex = 4;
+            this.btn_add_review.Text = "Add Review";
+            this.btn_add_review.UseVisualStyleBackColor = false;
+            this.btn_add_review.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btn_show_reviews
+            // 
+            this.btn_show_reviews.BackColor = System.Drawing.Color.Salmon;
+            this.btn_show_reviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_reviews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_show_reviews.Location = new System.Drawing.Point(215, 59);
+            this.btn_show_reviews.Name = "btn_show_reviews";
+            this.btn_show_reviews.Size = new System.Drawing.Size(204, 59);
+            this.btn_show_reviews.TabIndex = 3;
+            this.btn_show_reviews.Text = "Show Reviews";
+            this.btn_show_reviews.UseVisualStyleBackColor = false;
+            // 
+            // btn_show_movies
+            // 
+            this.btn_show_movies.BackColor = System.Drawing.Color.Salmon;
+            this.btn_show_movies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_movies.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_show_movies.Location = new System.Drawing.Point(5, 58);
+            this.btn_show_movies.Name = "btn_show_movies";
+            this.btn_show_movies.Size = new System.Drawing.Size(204, 59);
+            this.btn_show_movies.TabIndex = 2;
+            this.btn_show_movies.Text = "Show Movies";
+            this.btn_show_movies.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -73,84 +129,90 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(493, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 52);
+            this.label1.Size = new System.Drawing.Size(129, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "IMDb";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // dgv_movies
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 150);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1153, 205);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv_movies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_movies.Location = new System.Drawing.Point(4, 184);
+            this.dgv_movies.Name = "dgv_movies";
+            this.dgv_movies.RowHeadersWidth = 51;
+            this.dgv_movies.RowTemplate.Height = 24;
+            this.dgv_movies.Size = new System.Drawing.Size(1153, 240);
+            this.dgv_movies.TabIndex = 1;
+            this.dgv_movies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_movies_CellContentClick);
             // 
-            // button2
+            // dgv_reviews
             // 
-            this.button2.BackColor = System.Drawing.Color.Salmon;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(215, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(204, 59);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Show Reviews";
-            this.button2.UseVisualStyleBackColor = false;
+            this.dgv_reviews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_reviews.Location = new System.Drawing.Point(4, 430);
+            this.dgv_reviews.Name = "dgv_reviews";
+            this.dgv_reviews.RowHeadersWidth = 51;
+            this.dgv_reviews.RowTemplate.Height = 24;
+            this.dgv_reviews.Size = new System.Drawing.Size(1153, 235);
+            this.dgv_reviews.TabIndex = 2;
+            this.dgv_reviews.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reviews_CellContentClick);
             // 
-            // dataGridView2
+            // btn_login
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 362);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1153, 205);
-            this.dataGridView2.TabIndex = 2;
+            this.btn_login.BackColor = System.Drawing.Color.Salmon;
+            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_login.Location = new System.Drawing.Point(1053, 60);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(95, 59);
+            this.btn_login.TabIndex = 7;
+            this.btn_login.Text = "Login";
+            this.btn_login.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // directorySearcher1
             // 
-            this.button3.BackColor = System.Drawing.Color.Salmon;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(425, 59);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 59);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Add Review";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
-            // button4
+            // txt_search_movie
             // 
-            this.button4.BackColor = System.Drawing.Color.Salmon;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(635, 59);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(204, 59);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Delete Review";
-            this.button4.UseVisualStyleBackColor = false;
+            this.txt_search_movie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search_movie.Location = new System.Drawing.Point(533, 144);
+            this.txt_search_movie.Name = "txt_search_movie";
+            this.txt_search_movie.Size = new System.Drawing.Size(420, 34);
+            this.txt_search_movie.TabIndex = 8;
+            // 
+            // btn_search_movie
+            // 
+            this.btn_search_movie.BackColor = System.Drawing.Color.Salmon;
+            this.btn_search_movie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search_movie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_search_movie.Location = new System.Drawing.Point(959, 142);
+            this.btn_search_movie.Name = "btn_search_movie";
+            this.btn_search_movie.Size = new System.Drawing.Size(193, 36);
+            this.btn_search_movie.TabIndex = 9;
+            this.btn_search_movie.Text = "Search movie";
+            this.btn_search_movie.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 592);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.SeaShell;
+            this.ClientSize = new System.Drawing.Size(1162, 669);
+            this.Controls.Add(this.btn_search_movie);
+            this.Controls.Add(this.txt_search_movie);
+            this.Controls.Add(this.dgv_reviews);
+            this.Controls.Add(this.dgv_movies);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_movies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_reviews)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,12 +220,17 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_show_movies;
+        private System.Windows.Forms.DataGridView dgv_movies;
+        private System.Windows.Forms.Button btn_add_review;
+        private System.Windows.Forms.Button btn_show_reviews;
+        private System.Windows.Forms.DataGridView dgv_reviews;
+        private System.Windows.Forms.Button btn_delete_review;
+        private System.Windows.Forms.Button btn_update_review;
+        private System.Windows.Forms.Button btn_login;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private System.Windows.Forms.TextBox txt_search_movie;
+        private System.Windows.Forms.Button btn_search_movie;
     }
 }
 
