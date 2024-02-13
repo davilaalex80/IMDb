@@ -21,5 +21,20 @@ namespace IMDB_Project
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
