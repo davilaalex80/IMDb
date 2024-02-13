@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IMDB_Project.Data;
+using IMDB_Project.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace IMDB_Project
 {
     public partial class Form2 : Form
     {
+
         public Form2()
         {
             InitializeComponent();
@@ -34,7 +37,46 @@ namespace IMDB_Project
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            
+            if(txtDescription.Text == string.Empty || txtRating.Text == string.Empty || cmbUser.Text == string.Empty)
+            {
+                MessageBox.Show("Falta ingresar datos requeridos (*)",
+                                "Aviso del Sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }
+            else //Save review
+            {
+                string Rpta = "";
+                E_Reviews oReviews = new E_Reviews();
+                oReviews.Id_Users = Convert.ToInt32(this.cmbUser.Text);
+                oReviews.id_Movie = Convert.ToInt32(this.cmbMovie.Text);
+                oReviews.Rating = Convert.ToInt32(this.txtRating.Text);
+                oReviews.Description = this.txtDescription.Text;
+
+                D_Reviews dReviews = new D_Reviews();
+                Rpta = dReviews.SaveReview(1, oReviews);
+                if (Rpta == 'OK')
+                {
+                    
+                }
+
+            }
         }
+
+        private void cmbMovie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRating_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

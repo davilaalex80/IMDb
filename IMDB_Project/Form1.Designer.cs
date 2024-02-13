@@ -181,6 +181,7 @@
             this.txt_search_movie.Name = "txt_search_movie";
             this.txt_search_movie.Size = new System.Drawing.Size(420, 34);
             this.txt_search_movie.TabIndex = 8;
+            this.txt_search_movie.TextChanged += new System.EventHandler(this.txt_search_movie_TextChanged);
             // 
             // btn_search_movie
             // 

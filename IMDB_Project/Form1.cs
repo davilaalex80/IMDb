@@ -69,6 +69,10 @@ namespace IMDB_Project
                 //txtStockActual.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["stock_actual"].Value);
             }
         }
-        
+
+        private void txt_search_movie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
