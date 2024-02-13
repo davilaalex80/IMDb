@@ -41,8 +41,15 @@ namespace IMDB_Project
         private void List_movies(string cTexto)
         {
             D_Reviews datos = new D_Reviews();
-            dgv_movies.DataSource = datos.List_movies(cTexto);
+            dgv_movies.DataSource = datos.List_Movies(cTexto);
         }
+
+        private void List_reviews(int idMovie)
+        {
+            D_Reviews datos = new D_Reviews();
+            dgv_movies.DataSource = datos.List_Reviews(idMovie);
+        }
+
         private void Select_Movie()
         {
             if (string.IsNullOrEmpty(Convert.ToString(dgv_movies.CurrentRow.Cells["codigo_pr"].Value)))
