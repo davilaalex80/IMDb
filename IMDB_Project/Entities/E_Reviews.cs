@@ -8,13 +8,13 @@ namespace IMDB_Project.Entities
 {
     public class E_Reviews
     {
-        public int id_movie { get; set; }
-        public string Name { get; set; }
-        public string Genre { get; set; }
-        public int Year { get; set; }
-        public string Director { get; set; }
-        public int Length_min { get; set; }
-        public int id_studio { get; set; }
+
+        public int Id_Reviews { get; set; }
+        public int Id_Users { get; set; }
+        public string Description { get; set; }
+        public int Rating { get; set; }
+        public string Date { get; set; }
+        public int id_Movie { get; set; }
 
     }
 }

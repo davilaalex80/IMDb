@@ -12,7 +12,7 @@ namespace IMDB_Project.Data
     public class D_Reviews
     {
 
-        public DataTable List_movies(string cTexto)
+        public DataTable List_Movies(string cTexto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -40,7 +40,7 @@ namespace IMDB_Project.Data
             }
         }
 
-        public string Guardar_pr(int nOpcion,
+        public string SaveReview(int nOpcion,
                                  E_Reviews oPro)
         {
             string Rpta = "";
@@ -48,15 +48,12 @@ namespace IMDB_Project.Data
             try
             {
                 SqlCon = Conexion.getInstancia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("USP_GUARDAR", SqlCon);
+                SqlCommand Comando = new SqlCommand("usp_AddReview", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add("@Opcion", SqlDbType.Int).Value = nOpcion;
-                Comando.Parameters.Add("@nCodigo_pr", SqlDbType.Int).Value = oPro.Codigo_pr;
-                Comando.Parameters.Add("@cDescripcion_pr", SqlDbType.VarChar).Value = oPro.Descripcion_pr;
-                Comando.Parameters.Add("@cMarca_pr", SqlDbType.VarChar).Value = oPro.Marca_pr;
-                Comando.Parameters.Add("@nCodigo_me", SqlDbType.Int).Value = oPro.Codigo_me;
-                Comando.Parameters.Add("@nCodigo_ca", SqlDbType.Int).Value = oPro.Codigo_ca;
-                Comando.Parameters.Add("@nStock_actual", SqlDbType.Decimal).Value = oPro.Stock_actual;
+                Comando.Parameters.Add("@Id_User", SqlDbType.Int).Value = nOpcion;
+                Comando.Parameters.Add("@description", SqlDbType.NVarChar).Value = oPro.Description;
+                Comando.Parameters.Add("@rating", SqlDbType.Int).Value = oPro.Rating;
+                Comando.Parameters.Add("@Id_Movie", SqlDbType.VarChar).Value = oPro.id_Movie;
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo registrar los datos";
             }
@@ -99,7 +96,7 @@ namespace IMDB_Project.Data
             return Rpta;
         }
 
-        public DataTable Listado_me()
+        public DataTable List_Reviews(int id_Movie)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -107,7 +104,7 @@ namespace IMDB_Project.Data
             try
             {
                 SqlCon = Conexion.getInstancia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("USP_LISTADO_ME", SqlCon);
+                SqlCommand Comando = new SqlCommand("USP_List_Reviews", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
