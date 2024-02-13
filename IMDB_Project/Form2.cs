@@ -55,10 +55,10 @@ namespace IMDB_Project
 
                 D_Reviews dReviews = new D_Reviews();
                 Rpta = dReviews.SaveReview(1, oReviews);
-                if (Rpta == 'OK')
-                {
-                    
-                }
+                //if (Rpta == "OK")
+                //{
+                //    
+                //}
 
             }
         }

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Conexion.cs" />
+    <Compile Include="Data\D_Movies.cs" />
     <Compile Include="Data\D_Reviews.cs" />
     <Compile Include="Entities\E_Movies.cs" />
     <Compile Include="Entities\E_Reviews.cs" />
