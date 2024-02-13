@@ -133,6 +133,7 @@
             this.btn_show_movies.TabIndex = 2;
             this.btn_show_movies.Text = "Show Movies";
             this.btn_show_movies.UseVisualStyleBackColor = false;
+            this.btn_show_movies.Click += new System.EventHandler(this.btn_show_movies_Click);
             // 
             // label1
             // 
@@ -148,6 +149,7 @@
             // 
             // dgv_movies
             // 
+            this.dgv_movies.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_movies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_movies.Location = new System.Drawing.Point(4, 184);
             this.dgv_movies.Name = "dgv_movies";
@@ -159,6 +161,7 @@
             // 
             // dgv_reviews
             // 
+            this.dgv_reviews.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgv_reviews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_reviews.Location = new System.Drawing.Point(4, 430);
             this.dgv_reviews.Name = "dgv_reviews";
@@ -181,6 +184,7 @@
             this.txt_search_movie.Name = "txt_search_movie";
             this.txt_search_movie.Size = new System.Drawing.Size(420, 34);
             this.txt_search_movie.TabIndex = 8;
+            this.txt_search_movie.TextChanged += new System.EventHandler(this.txt_search_movie_TextChanged);
             // 
             // btn_search_movie
             // 
@@ -193,6 +197,7 @@
             this.btn_search_movie.TabIndex = 9;
             this.btn_search_movie.Text = "Search movie";
             this.btn_search_movie.UseVisualStyleBackColor = false;
+            this.btn_search_movie.Click += new System.EventHandler(this.btn_search_movie_Click);
             // 
             // Form1
             // 
@@ -206,6 +211,7 @@
             this.Controls.Add(this.dgv_movies);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
