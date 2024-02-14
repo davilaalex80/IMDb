@@ -189,7 +189,10 @@ namespace IMDB_Project
 
         private void btn_update_review_Click(object sender, EventArgs e)
         {
-
+            Select_Review();
+            Form3 form3 = new Form3(this.id_Review);
+            form3.ShowDialog();
+            this.Buttons(false);
         }
     }
 }
