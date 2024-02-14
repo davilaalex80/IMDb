@@ -92,33 +92,33 @@ namespace IMDB_Project.Data
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
         }
-        /*
-        public DataTable Listado_ca()
+        
+        public string DeleteRow(int Id_Review)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
             SqlConnection SqlCon = new SqlConnection();
+            string Rpta = "";
             try
             {
                 SqlCon = Conexion.getInstancia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("USP_LISTADO_CA", SqlCon);
+                SqlCommand Comando = new SqlCommand("usp_DeleteReview", SqlCon);
+                Comando.Parameters.Add("@id_Review", SqlDbType.Int).Value = Id_Review;
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);
-                return Tabla;
+                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo registrar los datos";
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Rpta = ex.Message;
             }
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
+            return Rpta;
         }
-        */
-
     }
 }

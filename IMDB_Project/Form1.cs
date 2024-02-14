@@ -172,20 +172,17 @@ namespace IMDB_Project
 
         private void btn_delete_review_Click(object sender, EventArgs e)
         {
-            //string Rpta = "";
-            //D_Reviews Data = new D_Reviews();
-            //Rpta = Data.Activo_pr(vCodigo_pr, false);
-            //if (Rpta == "OK")
-            //{
-            //    this.Listado_pr("%");
-            //    this.LimpiaTexto();
-            //    vCodigo_pr = 0;
-            //    MessageBox.Show("El registro seleccionado ha sido eliminado",
-            //                    "Aviso del Sistema",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Information);
-            //    /*  }*/
-            //}
+            string Rpta = "";
+            D_Reviews dReviews = new D_Reviews();
+            Select_Review();
+            Rpta = dReviews.DeleteRow(this.id_Review);
+            if (Rpta == "OK")
+            {
+                MessageBox.Show("Se ha eliminado con exito el registro",
+                                 "Aviso del Sistema",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Information);
+            }
         }
 
         private void btn_show_reviews_Click(object sender, EventArgs e)
