@@ -16,6 +16,8 @@ namespace IMDB_Project
         public Form1()
         {
             InitializeComponent();
+            this.Load_Movies_table();
+            this.Load_Reviews_table();
         }
 
         int id_Movie = 0;
@@ -163,7 +165,7 @@ namespace IMDB_Project
         }
         private void btn_search_movie_Click(object sender, EventArgs e)
         {
-            this.List_movies(txt_search_movie.Text);
+            //this.List_movies(txt_search_movie.Text);
         }
         
         ///unnecessary, for now
@@ -196,7 +198,13 @@ namespace IMDB_Project
 
         private void btn_show_reviews_Click(object sender, EventArgs e)
         {
-            this.Load_Reviews_table();
+            this.Update();
+            this.Refresh();
+            Select_Movie();
+            //this.Load_Reviews_table();
+            D_Reviews Data = new D_Reviews();
+            dgv_reviews.DataSource = Data.List_Reviews_table_1(this.id_Movie);
+            this.Format_reviews();
         }
 
         private void btn_update_review_Click(object sender, EventArgs e)

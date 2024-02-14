@@ -39,9 +39,6 @@
             this.dgv_movies = new System.Windows.Forms.DataGridView();
             this.dgv_reviews = new System.Windows.Forms.DataGridView();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.txt_search_movie = new System.Windows.Forms.TextBox();
-            this.btn_search_movie = new System.Windows.Forms.Button();
-            this.cmb_movies_test = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_movies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reviews)).BeginInit();
@@ -181,46 +178,12 @@
             this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
-            // txt_search_movie
-            // 
-            this.txt_search_movie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search_movie.Location = new System.Drawing.Point(949, 143);
-            this.txt_search_movie.Name = "txt_search_movie";
-            this.txt_search_movie.Size = new System.Drawing.Size(201, 34);
-            this.txt_search_movie.TabIndex = 8;
-            this.txt_search_movie.TextChanged += new System.EventHandler(this.txt_search_movie_TextChanged);
-            // 
-            // btn_search_movie
-            // 
-            this.btn_search_movie.BackColor = System.Drawing.Color.Salmon;
-            this.btn_search_movie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search_movie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_search_movie.Location = new System.Drawing.Point(959, 142);
-            this.btn_search_movie.Name = "btn_search_movie";
-            this.btn_search_movie.Size = new System.Drawing.Size(193, 36);
-            this.btn_search_movie.TabIndex = 9;
-            this.btn_search_movie.Text = "Search movie";
-            this.btn_search_movie.UseVisualStyleBackColor = false;
-            this.btn_search_movie.Click += new System.EventHandler(this.btn_search_movie_Click);
-            // 
-            // cmb_movies_test
-            // 
-            this.cmb_movies_test.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_movies_test.FormattingEnabled = true;
-            this.cmb_movies_test.Location = new System.Drawing.Point(4, 140);
-            this.cmb_movies_test.Name = "cmb_movies_test";
-            this.cmb_movies_test.Size = new System.Drawing.Size(720, 38);
-            this.cmb_movies_test.TabIndex = 10;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1162, 669);
-            this.Controls.Add(this.cmb_movies_test);
-            this.Controls.Add(this.btn_search_movie);
-            this.Controls.Add(this.txt_search_movie);
             this.Controls.Add(this.dgv_reviews);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgv_movies);
@@ -232,7 +195,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_movies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reviews)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -249,9 +211,6 @@
         private System.Windows.Forms.Button btn_update_review;
         private System.Windows.Forms.Button btn_login;
         private System.DirectoryServices.DirectorySearcher directorySearcher1;
-        private System.Windows.Forms.TextBox txt_search_movie;
-        private System.Windows.Forms.Button btn_search_movie;
-        private System.Windows.Forms.ComboBox cmb_movies_test;
     }
 }
 

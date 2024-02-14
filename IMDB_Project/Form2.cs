@@ -33,6 +33,7 @@ namespace IMDB_Project
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Restart();
         }
 
         private void btn_save_Click(object sender, EventArgs e)

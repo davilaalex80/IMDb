@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IMDB_Project.Entities;
+using System.Runtime.InteropServices;
 
 namespace IMDB_Project.Data
 {
@@ -149,6 +150,34 @@ namespace IMDB_Project.Data
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
             return Rpta;
+        }
+
+        public DataTable List_Reviews_table_1(int Id_Movie)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion.getInstancia().CrearConexion();
+                //stored procedure 
+                SqlCommand Comando = new SqlCommand("List_Reviews_ById", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.Add("@Id_Movie", SqlDbType.VarChar).Value = Id_Movie;
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
         }
 
     }
