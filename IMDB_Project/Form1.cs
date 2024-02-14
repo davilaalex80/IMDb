@@ -116,7 +116,7 @@ namespace IMDB_Project
             }
             else
             {
-                this.id_Review = Convert.ToInt32(dgv_movies.CurrentRow.Cells["id_review"].Value);
+                this.id_Review = Convert.ToInt32(dgv_reviews.CurrentRow.Cells["id_review"].Value);
             }
         }
         private void Load_Movies_table()
