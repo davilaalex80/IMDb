@@ -106,9 +106,9 @@ namespace IMDB_Project.Data
                 Comando.Parameters.Add("@id_Review", SqlDbType.Int).Value = Id_Review;
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo registrar los datos";
+                //Resultado = Comando.ExecuteReader();
+                //Tabla.Load(Resultado);
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo registrar los datos";
             }
             catch (Exception ex)
             {

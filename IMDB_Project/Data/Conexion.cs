@@ -19,9 +19,9 @@ namespace IMDB_Project.Data
         private Conexion()
         {
             this.Base = "IMDB";
-            this.Servidor = "LTMEX2023012501";
-            this.Usuario = "TecMi";
-            this.Clave = "StandardE80";
+            this.Servidor = "LTMEX2023111702";
+            this.Usuario = "vanilla";
+            this.Clave = "vanilla123";
         }
 
         public SqlConnection CrearConexion()
