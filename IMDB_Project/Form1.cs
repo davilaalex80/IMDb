@@ -179,6 +179,8 @@ namespace IMDB_Project
                                  "Aviso del Sistema",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Information);
+                Load_Reviews_table();
+
             }
         }
 
