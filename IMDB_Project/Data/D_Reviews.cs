@@ -120,5 +120,34 @@ namespace IMDB_Project.Data
             }
             return Rpta;
         }
+
+        public string UpdateRow(int Id_Review)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            string Rpta = "";
+            try
+            {
+                SqlCon = Conexion.getInstancia().CrearConexion();
+                SqlCommand Comando = new SqlCommand("usp_DeleteReview", SqlCon);
+                Comando.Parameters.Add("@id_Review", SqlDbType.Int).Value = Id_Review;
+                Comando.CommandType = CommandType.StoredProcedure;
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo registrar los datos";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return Rpta;
+        }
+
     }
 }

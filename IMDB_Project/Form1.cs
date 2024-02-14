@@ -189,5 +189,10 @@ namespace IMDB_Project
         {
             this.Load_Reviews_table();
         }
+
+        private void btn_update_review_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

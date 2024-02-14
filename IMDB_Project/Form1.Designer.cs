@@ -85,6 +85,7 @@
             this.btn_update_review.TabIndex = 6;
             this.btn_update_review.Text = "Update Review";
             this.btn_update_review.UseVisualStyleBackColor = false;
+            this.btn_update_review.Click += new System.EventHandler(this.btn_update_review_Click);
             // 
             // btn_delete_review
             // 
