@@ -38,6 +38,8 @@
             this.cmbMovie = new System.Windows.Forms.ComboBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -125,11 +127,40 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Movie:";
             // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_cancel.Location = new System.Drawing.Point(388, 342);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_cancel.Size = new System.Drawing.Size(204, 59);
+            this.btn_cancel.TabIndex = 14;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_save.Location = new System.Drawing.Point(178, 341);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(204, 59);
+            this.btn_save.TabIndex = 13;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.cmbMovie);
@@ -142,8 +173,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form3";
             this.Text = "Form3";
-            this.ResumeLayout(false);
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }
@@ -160,5 +191,7 @@
         private System.Windows.Forms.ComboBox cmbMovie;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_save;
     }
 }

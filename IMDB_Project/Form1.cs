@@ -19,7 +19,13 @@ namespace IMDB_Project
         }
 
         int id_Movie = 0;
+        // Review attributes
         int id_Review = 0;
+        string user = "";
+        string movie = "";
+        string rating = "";
+        string description = "";
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -117,6 +123,10 @@ namespace IMDB_Project
             else
             {
                 this.id_Review = Convert.ToInt32(dgv_reviews.CurrentRow.Cells["id_review"].Value);
+                this.user = Convert.ToString(dgv_reviews.CurrentRow.Cells["UserName"].Value);
+                this.movie = Convert.ToString(dgv_reviews.CurrentRow.Cells["MovieName"].Value);
+                this.rating = Convert.ToString(dgv_reviews.CurrentRow.Cells["rating"].Value);
+                this.description = Convert.ToString(dgv_reviews.CurrentRow.Cells["Description"].Value);
             }
         }
         private void Load_Movies_table()
@@ -192,7 +202,7 @@ namespace IMDB_Project
         private void btn_update_review_Click(object sender, EventArgs e)
         {
             Select_Review();
-            Form3 form3 = new Form3(this.id_Review);
+            Form3 form3 = new Form3(this.id_Review, this.user, this.movie, this.rating, this.description);
             form3.ShowDialog();
             this.Buttons(false);
         }
