@@ -37,7 +37,7 @@ namespace IMDB_Project
         //dgv_movies
         private void dgv_movies_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Select_Movie();
+            //this.Select_Movie();
         }
         private void dgv_reviews_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -66,12 +66,12 @@ namespace IMDB_Project
             dgv_movies.Columns[5].Visible = false;
 
         }
-        private void List_movies(string cTexto)
-        {
-            D_Movies datos = new D_Movies();
-            dgv_movies.DataSource = datos.List_Movies(cTexto);
-            this.Format_movies();
-        }
+        //private void List_movies(string cTexto)
+        //{
+        //    D_Movies datos = new D_Movies();
+        //    dgv_movies.DataSource = datos.List_Movies(cTexto);
+        //    this.Format_movies();
+        //}
 
         private void List_Reviews(int idMovie)
         {
@@ -100,11 +100,22 @@ namespace IMDB_Project
                 */
             }
         }
-        private void Load_Movies()
+        private void Load_Movie()
         {
             D_Movies Data = new D_Movies();
-            //combox form2
-            //cmb_movies.DataSource = Data.List_Movies();
+            cmb_movies_test.DataSource = Data.test_Movies();
+            cmb_movies_test.DisplayMember = "name";
+        }
+
+        private void Load_Movies_table()
+        {
+            D_Movies Data = new D_Movies();
+            dgv_movies.DataSource = Data.List_Movies_table();
+        }
+        private void Load_Reviews_table()
+        {
+            D_Reviews Data = new D_Reviews();
+            dgv_reviews.DataSource = Data.List_Reviews_table();
         }
         private void Load_Reviews()
         {
@@ -113,24 +124,35 @@ namespace IMDB_Project
         }
         private void Form1_Load()
         {
-            this.Load_Movies();
+            this.Load_Movie();
             this.Load_Reviews();
             //this.List_movies("%");
         }
         private void btn_search_movie_Click(object sender, EventArgs e)
         {
-            this.List_movies(txt_search_movie.Text);
+            //this.List_movies(txt_search_movie.Text);
         }
         
         ///unnecessary, for now
         private void txt_search_movie_TextChanged(object sender, EventArgs e)
         {
-            
+            this.Load_Movie();
         }
+        ///
 
         private void btn_show_movies_Click(object sender, EventArgs e)
         {
-            this.Load_Movies();
+            this.Load_Movies_table();
+        }
+
+        private void btn_show_reviews_Click(object sender, EventArgs e)
+        {
+            this.Load_Reviews_table();
+        }
+
+        private void cmb_movies_test_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
