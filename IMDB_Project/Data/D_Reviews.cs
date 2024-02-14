@@ -64,6 +64,34 @@ namespace IMDB_Project.Data
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
         }
+        
+        public DataTable List_Reviews_table()
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion.getInstancia().CrearConexion();
+                //stored procedure 
+                SqlCommand Comando = new SqlCommand("LIST_REVIEWS_TABLE", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+                //Comando.Parameters.Add("@cTexto", SqlDbType.VarChar).Value = cTexto;
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+        }
         /*
         public DataTable Listado_ca()
         {
