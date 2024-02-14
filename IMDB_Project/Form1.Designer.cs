@@ -96,6 +96,7 @@
             this.btn_delete_review.TabIndex = 5;
             this.btn_delete_review.Text = "Delete Review";
             this.btn_delete_review.UseVisualStyleBackColor = false;
+            this.btn_delete_review.Click += new System.EventHandler(this.btn_delete_review_Click);
             // 
             // btn_add_review
             // 

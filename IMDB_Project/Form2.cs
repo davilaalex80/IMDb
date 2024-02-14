@@ -50,6 +50,7 @@ namespace IMDB_Project
                 E_Reviews oReviews = new E_Reviews();
                 Console.WriteLine(cmbUser.ValueMember);
                 Console.WriteLine(cmbUser.SelectedValue);
+                Console.WriteLine(cmbMovie.SelectedValue);
                 oReviews.Id_Users = Convert.ToInt32(this.cmbUser.SelectedValue);
                 oReviews.id_Movie = Convert.ToInt32(this.cmbMovie.SelectedValue);
                 oReviews.Rating = Convert.ToInt32(this.txtRating.Text);

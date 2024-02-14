@@ -21,7 +21,7 @@ namespace IMDB_Project.Data
                 SqlCon = Conexion.getInstancia().CrearConexion();
                 SqlCommand Comando = new SqlCommand("usp_AddReview", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add("@Id_User", SqlDbType.Int).Value = nOpcion;
+                Comando.Parameters.Add("@Id_User", SqlDbType.Int).Value = oPro.Id_Users;
                 Comando.Parameters.Add("@description", SqlDbType.NVarChar).Value = oPro.Description;
                 Comando.Parameters.Add("@rating", SqlDbType.Int).Value = oPro.Rating;
                 Comando.Parameters.Add("@Id_Movie", SqlDbType.VarChar).Value = oPro.id_Movie;

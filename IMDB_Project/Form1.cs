@@ -18,6 +18,9 @@ namespace IMDB_Project
             InitializeComponent();
         }
 
+        int id_Movie = 0;
+        int id_Review = 0;
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -90,16 +93,25 @@ namespace IMDB_Project
             }
             else
             {
-                /*
-                this.vCodigo_pr = Convert.ToInt32(dgv_movies.CurrentRow.Cells["codigo_pr"].Value);
-                txtDescripcion_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_pr"].Value);
-                txtMarca_pr.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["marca_pr"].Value);
-                cmbMedidas.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_me"].Value);
-                cmbCategoria.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["descripcion_ca"].Value);
-                txtStockActual.Text = Convert.ToString(dgv_movies.CurrentRow.Cells["stock_actual"].Value);
-                */
+                this.id_Movie = Convert.ToInt32(dgv_movies.CurrentRow.Cells["id_movie"].Value);   
             }
         }
+
+        private void Select_Review()
+        {
+            if (string.IsNullOrEmpty(Convert.ToString(dgv_reviews.CurrentRow.Cells["id_review"].Value)))
+            {
+                MessageBox.Show("No se tiene información para Visualizar",
+                                "Aviso del Sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.id_Review = Convert.ToInt32(dgv_movies.CurrentRow.Cells["id_review"].Value);
+            }
+        }
+
         private void Load_Movies()
         {
             D_Movies Data = new D_Movies();
@@ -131,6 +143,11 @@ namespace IMDB_Project
         private void btn_show_movies_Click(object sender, EventArgs e)
         {
             this.Load_Movies();
+        }
+
+        private void btn_delete_review_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
