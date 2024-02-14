@@ -210,7 +210,6 @@
             this.cmb_movies_test.Name = "cmb_movies_test";
             this.cmb_movies_test.Size = new System.Drawing.Size(720, 38);
             this.cmb_movies_test.TabIndex = 10;
-            this.cmb_movies_test.SelectedIndexChanged += new System.EventHandler(this.cmb_movies_test_SelectedIndexChanged);
             // 
             // Form1
             // 
