@@ -56,7 +56,7 @@ namespace IMDB_Project
 
         private void Format_movies()
         {
-            dgv_movies.Columns[0].Width = 314;
+            dgv_movies.Columns[0].Width = 290;
             dgv_movies.Columns[0].HeaderText = "Movie name";
             dgv_movies.Columns[1].Width = 110;
             dgv_movies.Columns[1].HeaderText = "Genre";
@@ -66,11 +66,14 @@ namespace IMDB_Project
             dgv_movies.Columns[3].HeaderText = "Director";
             dgv_movies.Columns[4].Width = 110;
             dgv_movies.Columns[4].HeaderText = "Movie length (min)";
+            dgv_movies.Columns[5].Width = 25;
+            dgv_movies.Columns[5].HeaderText = "ID";
+
 
         }
         private void Format_reviews()
         {
-            dgv_reviews.Columns[0].Width = 215;
+            dgv_reviews.Columns[0].Width = 190;
             dgv_reviews.Columns[0].HeaderText = "Movie name";
             dgv_reviews.Columns[1].Width = 50;
             dgv_reviews.Columns[1].HeaderText = "Rating";
@@ -80,21 +83,12 @@ namespace IMDB_Project
             dgv_reviews.Columns[3].HeaderText = "Date";
             dgv_reviews.Columns[4].Width = 110;
             dgv_reviews.Columns[4].HeaderText = "User name";
+            dgv_reviews.Columns[5].Width = 25;
+            dgv_reviews.Columns[5].HeaderText = "ID";
 
         }
-        private void List_movies(string cTexto)
-        {
-            D_Movies datos = new D_Movies();
-            dgv_movies.DataSource = datos.List_Movies(cTexto);
-            this.Format_movies();
-        }
-
-        private void List_Reviews(int idMovie)
-        {
-            D_Reviews datos = new D_Reviews();
-            dgv_movies.DataSource = datos.List_Reviews(idMovie);
-        }
-
+        
+      
         private void Select_Movie()
         {
             if (string.IsNullOrEmpty(Convert.ToString(dgv_movies.CurrentRow.Cells["id_movie"].Value)))
@@ -106,7 +100,8 @@ namespace IMDB_Project
             }
             else
             {
-                this.id_Movie = Convert.ToInt32(dgv_movies.CurrentRow.Cells["id_movie"].Value);   
+                this.id_Movie = Convert.ToInt32(dgv_movies.CurrentRow.Cells["id_movie"].Value);
+                //Load_Reviews(this.id_Movie);
             }
         }
 
@@ -136,22 +131,24 @@ namespace IMDB_Project
             dgv_reviews.DataSource = Data.List_Reviews_table();
             this.Format_reviews();
         }
-
-        private void Load_Movies()
+        private void List_movies(string cTexto)
         {
-            D_Movies Data = new D_Movies();
-            //combox form2
-            //cmb_movies.DataSource = Data.List_Movies();
+            D_Movies datos = new D_Movies();
+            dgv_movies.DataSource = datos.List_Movies(cTexto);
+            this.Format_movies();
         }
-        private void Load_Reviews()
-        {
-            D_Reviews Data = new D_Reviews();
 
+        private void List_Reviews(int idMovie)
+        {
+            D_Reviews datos = new D_Reviews();
+            dgv_movies.DataSource = datos.List_Reviews(idMovie);
+            this.Format_reviews();
         }
+
         private void Form1_Load()
         {
-            this.Load_Movies();
-            this.Load_Reviews();
+            //this.Load_Movies();
+            //this.Load_Reviews();
             //this.List_movies("%");
         }
         private void btn_search_movie_Click(object sender, EventArgs e)
