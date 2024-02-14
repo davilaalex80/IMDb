@@ -53,17 +53,30 @@ namespace IMDB_Project
 
         private void Format_movies()
         {
-            dgv_movies.Columns[0].Width = 100;
+            dgv_movies.Columns[0].Width = 314;
             dgv_movies.Columns[0].HeaderText = "Movie name";
-            dgv_movies.Columns[1].Width = 210;
+            dgv_movies.Columns[1].Width = 110;
             dgv_movies.Columns[1].HeaderText = "Genre";
             dgv_movies.Columns[2].Width = 110;
             dgv_movies.Columns[2].HeaderText = "Year movie released";
-            dgv_movies.Columns[3].Width = 110;
+            dgv_movies.Columns[3].Width = 150;
             dgv_movies.Columns[3].HeaderText = "Director";
             dgv_movies.Columns[4].Width = 110;
-            dgv_movies.Columns[4].HeaderText = "Movie Length";
-            dgv_movies.Columns[5].Visible = false;
+            dgv_movies.Columns[4].HeaderText = "Movie length (min)";
+
+        }
+        private void Format_reviews()
+        {
+            dgv_reviews.Columns[0].Width = 100;
+            dgv_reviews.Columns[0].HeaderText = "Username";
+            dgv_reviews.Columns[1].Width = 310;
+            dgv_reviews.Columns[1].HeaderText = "Description";
+            dgv_reviews.Columns[2].Width = 110;
+            dgv_reviews.Columns[2].HeaderText = "Rating";
+            dgv_reviews.Columns[3].Width = 110;
+            dgv_reviews.Columns[3].HeaderText = "Date";
+            dgv_reviews.Columns[4].Width = 110;
+            dgv_reviews.Columns[4].HeaderText = "Movie name";
 
         }
         //private void List_movies(string cTexto)
@@ -111,11 +124,13 @@ namespace IMDB_Project
         {
             D_Movies Data = new D_Movies();
             dgv_movies.DataSource = Data.List_Movies_table();
+            this.Format_movies();
         }
         private void Load_Reviews_table()
         {
             D_Reviews Data = new D_Reviews();
             dgv_reviews.DataSource = Data.List_Reviews_table();
+            this.Format_reviews();
         }
         private void Load_Reviews()
         {
