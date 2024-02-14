@@ -48,17 +48,22 @@ namespace IMDB_Project
             {
                 string Rpta = "";
                 E_Reviews oReviews = new E_Reviews();
-                oReviews.Id_Users = Convert.ToInt32(this.cmbUser.Text);
-                oReviews.id_Movie = Convert.ToInt32(this.cmbMovie.Text);
+                Console.WriteLine(cmbUser.ValueMember);
+                Console.WriteLine(cmbUser.SelectedValue);
+                oReviews.Id_Users = Convert.ToInt32(this.cmbUser.SelectedValue);
+                oReviews.id_Movie = Convert.ToInt32(this.cmbMovie.SelectedValue);
                 oReviews.Rating = Convert.ToInt32(this.txtRating.Text);
                 oReviews.Description = this.txtDescription.Text;
 
                 D_Reviews dReviews = new D_Reviews();
                 Rpta = dReviews.SaveReview(1, oReviews);
-                //if (Rpta == "OK")
-                //{
-                //    
-                //}
+                if (Rpta == "OK")
+                {
+                    MessageBox.Show("Los datos han sido guardados correctamente",
+                                     "Aviso del Sistema",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+                }
 
             }
         }
@@ -76,6 +81,30 @@ namespace IMDB_Project
         private void txtRating_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Load_Users()
+        {
+            D_Users Data = new D_Users();
+            cmbUser.DataSource = Data.List_Users();
+            cmbUser.ValueMember = "id_User";
+            cmbUser.DisplayMember = "Name";
+        }
+
+        private void Load_Movies()
+        {
+            string Empty = "";
+            D_Movies Data = new D_Movies();
+            cmbMovie.DataSource = Data.List_Movies(Empty);
+            cmbMovie.ValueMember = "id_movie";
+            cmbMovie.DisplayMember = "Name";
+            
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            this.Load_Users();
+            this.Load_Movies();
         }
 
     }

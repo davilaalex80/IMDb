@@ -230,6 +230,7 @@
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.Load += new System.EventHandler(this.Form2_Load);
 
         }
 
@@ -250,5 +251,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.ComboBox cmbUser;
+
     }
 }
